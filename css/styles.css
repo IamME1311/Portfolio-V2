@@ -1,18 +1,41 @@
+/* =====================
+   BASE
+===================== */
+
 body {
   margin: 0;
   font-family: Inter, system-ui;
 }
 
+html {
+  scroll-snap-type: y mandatory;
+}
+
+pre {
+  white-space: pre-wrap;
+  line-height: 1.5;
+}
+
+/* =====================
+   LAYOUT
+===================== */
+
 .section {
   height: 100vh;
   display: flex;
   flex-direction: column;
+  scroll-snap-align: start;
 }
 
 .light {
   flex: 6;
   background: #f5f5f5;
   padding: 60px;
+  transition: transform 0.4s ease;
+}
+
+.light:hover {
+  transform: scale(1.01);
 }
 
 .dark {
@@ -22,6 +45,14 @@ body {
   padding: 30px;
   font-family: "JetBrains Mono", monospace;
 }
+
+.section:not(:first-child) .light {
+  padding-top: 100px;
+}
+
+/* =====================
+   HERO
+===================== */
 
 .title {
   font-size: 72px;
@@ -40,6 +71,10 @@ body {
   margin-top: 20px;
 }
 
+/* =====================
+   TEXT BLOCKS
+===================== */
+
 .section-title {
   font-size: 36px;
   font-weight: 800;
@@ -51,31 +86,49 @@ body {
   font-size: 18px;
 }
 
+/* =====================
+   TECH STACK
+===================== */
+
 .grid {
   margin-top: 40px;
   display: grid;
-  grid-template-columns: repeat(4,1fr);
+  grid-template-columns: repeat(4, 1fr);
   gap: 12px;
 }
 
-.grid span {
-  border: 2px solid black;
-  padding: 10px;
-  font-weight: 600;
+.tech {
+  margin-top: 40px;
 }
 
-pre {
-  white-space: pre-wrap;
-  line-height: 1.5;
+.tech-item {
+  border: 3px solid black;
+  padding: 14px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 700;
+  cursor: pointer;
+  background: white;
 }
 
-html {
-  scroll-snap-type: y mandatory;
+.tech-item img {
+  width: 40px;
+  height: 40px;
 }
 
-.section {
-  scroll-snap-align: start;
+.tech-item span {
+  font-size: 18px;
 }
+
+.tech-item:hover {
+  background: #ffd600;
+  box-shadow: 0 10px 0 black;
+}
+
+/* =====================
+   PROJECTS
+===================== */
 
 .projects {
   margin-top: 40px;
@@ -87,8 +140,8 @@ html {
 .project-card {
   border: 3px solid black;
   padding: 20px;
-  transition: all .3s ease;
   cursor: pointer;
+  transition: all 0.3s ease;
 }
 
 .project-card:hover {
@@ -103,9 +156,12 @@ html {
 
 .project-card span {
   font-size: 12px;
-  opacity: .7;
+  opacity: 0.7;
 }
 
+/* =====================
+   EXPERIENCE
+===================== */
 
 .timeline {
   margin-top: 40px;
@@ -124,8 +180,12 @@ html {
 
 .job p {
   margin-top: 5px;
-  opacity: .7;
+  opacity: 0.7;
 }
+
+/* =====================
+   CONTACT
+===================== */
 
 .contact {
   margin-top: 40px;
@@ -145,42 +205,74 @@ html {
   background: #ffd600;
 }
 
+/* =====================
+   BUTTONS
+===================== */
+
+.resume-btn {
+  display: inline-block;
+  margin-top: 30px;
+  border: 3px solid black;
+  padding: 12px 20px;
+  font-weight: 800;
+  text-decoration: none;
+  color: black;
+}
+
+.resume-btn:hover {
+  background: #ffd600;
+}
+
+/* =====================
+   PROGRESS BAR
+===================== */
+
+#progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 6px;
+  background: #ffd600;
+  width: 0%;
+  z-index: 9999;
+}
+
+/* =====================
+   RESPONSIVE
+===================== */
+
 @media (max-width: 900px) {
 
-.section {
-  height: auto;
-}
+  .section {
+    height: auto;
+  }
 
-.light, .dark {
-  flex: unset;
-}
+  .light,
+  .dark {
+    flex: unset;
+  }
 
-.title {
-  font-size: 42px;
-}
+  .title {
+    font-size: 42px;
+  }
 
-.section-title {
-  font-size: 28px;
-}
+  .section-title {
+    font-size: 28px;
+  }
 
-.grid {
-  grid-template-columns: repeat(2,1fr);
-}
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
 
-.projects {
-  grid-template-columns: 1fr;
-}
+  .projects {
+    grid-template-columns: 1fr;
+  }
 
-.light {
-  padding: 30px;
-}
+  .light {
+    padding: 30px;
+  }
 
-.dark {
-  padding: 20px;
-}
-
-}
-
-.section:not(:first-child) .light {
-  padding-top: 100px;
+  .dark {
+    padding: 20px;
+  }
 }
