@@ -106,10 +106,12 @@ pre {
   padding: 14px;
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 24px;
   font-weight: 700;
   cursor: pointer;
   background: white;
+
+  transition: background 0.35s ease, box-shadow 0.25s ease;
 }
 
 .tech-item img {
@@ -203,6 +205,67 @@ pre {
 
 .contact a:hover {
   background: #ffd600;
+}
+
+/* =====================
+   EMAIL MODAL
+===================== */
+
+.email-modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.4);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+}
+
+.email-box {
+  background: white;
+  border: 3px solid black;
+  font-size: 16px;
+  padding: 30px;
+  min-width: 260px;
+  position: relative;
+}
+
+.email-box p {
+  font-weight: 800;
+  margin-bottom: 20px;
+}
+
+.email-box button {
+  width: 100%;
+  margin-bottom: 10px;
+  padding: 10px;
+  border: 3px solid black;
+  background: white;
+  font-weight: 700;
+  cursor: pointer;
+  border-radius: 12px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+}
+
+.email-box button:hover {
+  background: #ffd600;
+}
+
+.email-box button img {
+  width: 26px;
+  height: 26px;
+}
+
+#closeModal {
+  position: absolute;
+  top: 6px;
+  right: 10px;
+  cursor: pointer;
+  font-size: 20px;
 }
 
 /* =====================

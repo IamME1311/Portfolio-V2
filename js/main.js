@@ -1,16 +1,6 @@
 //  Enable ScrollTrigger plugin
 gsap.registerPlugin(ScrollTrigger);
 
-// gsap.config({
-//   nullTargetWarn: false,
-// });
-
-// gsap.from("body", {
-//   opacity: 0,
-//   duration: 0.8,
-//   ease: "power2.out",
-// });
-
 gsap.from(".title", {
   y: 40,
   opacity: 0,
@@ -24,11 +14,11 @@ gsap.from(".tech-item", {
   },
   y: 30,
   opacity: 0,
-  stagger: 0.1,
-  delay: 0.6,
+  stagger: 0.2,
+  delay: 0.5,
 });
 
-document.querySelectorAll(".tech-item").forEach(item => {
+document.querySelectorAll(".tech-item").forEach((item) => {
   item.addEventListener("mouseenter", () => {
     gsap.to(item, { y: -6, duration: 0.4 });
   });
@@ -56,7 +46,7 @@ new Typed("#terminal", {
     "> booting agentic profile...\n> loading llm...\n> connecting tools...\n> system ready.",
   ],
   typeSpeed: 30,
-  showCursor: false,
+  showCursor: true,
 });
 
 new Typed("#terminal2", {
@@ -64,13 +54,13 @@ new Typed("#terminal2", {
     "> parsing experience\n> building reasoning loops\n> deploying autonomous agents",
   ],
   typeSpeed: 30,
-  showCursor: false,
+  showCursor: true,
 });
 
 new Typed("#terminal3", {
   strings: ["> python\n> fastapi\n> langchain\n> aws\n> docker\n> postgres"],
   typeSpeed: 30,
-  showCursor: false,
+  showCursor: true,
 });
 
 new Typed("#terminal4", {
@@ -78,7 +68,7 @@ new Typed("#terminal4", {
     "> loading projects...\n> agentic-engine.py\n> rag-system.py\n> semantic-search.py\n> done.",
   ],
   typeSpeed: 30,
-  showCursor: false,
+  showCursor: true,
 });
 
 new Typed("#terminal5", {
@@ -86,7 +76,7 @@ new Typed("#terminal5", {
     "> loading experience...\n> ripplinks_agent.py\n> rag_pipeline.ipynb\n> deployment_successful",
   ],
   typeSpeed: 30,
-  showCursor: false,
+  showCursor: true,
 });
 
 document.querySelectorAll(".project-card").forEach((card) => {
@@ -110,4 +100,31 @@ window.addEventListener("scroll", () => {
 
   const progress = document.getElementById("progress");
   if (progress) progress.style.width = percent + "%";
+});
+
+const email = "sarthak.agrawal1311@gmail.com";
+
+const emailBtn = document.getElementById("emailBtn");
+const modal = document.getElementById("emailModal");
+const openMail = document.getElementById("openMail");
+const copyMail = document.getElementById("copyMail");
+const closeModal = document.getElementById("closeModal");
+
+emailBtn.addEventListener("click", (e) => {
+  e.preventDefault();
+  modal.style.display = "flex";
+});
+
+closeModal.addEventListener("click", () => {
+  modal.style.display = "none";
+});
+
+openMail.addEventListener("click", () => {
+  window.location.href = `mailto:${email}`;
+});
+
+copyMail.addEventListener("click", async () => {
+  await navigator.clipboard.writeText(email);
+  copyMail.innerText = "Copied!";
+  setTimeout(() => (copyMail.innerHTML='<img src="./copy.png" alt="copy-icon"><span>Copy Email</span>'), 1200);
 });

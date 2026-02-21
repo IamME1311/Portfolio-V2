@@ -26,7 +26,7 @@
     <!-- HERO SECTION -->
     <section class="section">
       <div class="light">
-        <a class="resume-btn" href="./Resume_Sarthak.pdf" download
+        <a class="resume-btn" href="./assets/Resume_Sarthak.pdf" download
           >DOWNLOAD_RESUME</a
         >
 
@@ -235,9 +235,20 @@
         <h2 class="section-title">CONTACT</h2>
 
         <div class="contact">
-          <a href="mailto:sarthak.agrawal1311@gmail.com">Email</a>
-          <a href="https://github.com">GitHub</a>
-          <a href="https://linkedin.com">LinkedIn</a>
+          <a href="#" id="emailBtn">Email</a>
+          <a
+            href="https://github.com/iamme1311"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            GitHub
+          </a>
+          <a
+            href="https://linkedin.com/in/sarthakagrawal11"
+            target="_blank"
+            rel="noopener noreferrer"
+            >LinkedIn
+          </a>
         </div>
       </div>
 
@@ -245,12 +256,26 @@
         <pre>
 > ready for opportunities
 > open to AI / backend roles
-</pre
-        >
+        </pre>
       </div>
     </section>
 
+    <div id="emailModal" class="email-modal">
+      <div class="email-box">
+        <p>Contact via email</p>
+
+        <button id="openMail">
+          <img src="./assets/redirect_icon.png" alt="copy-icon">
+          <span>Open Email Client</span>
+        </button>
+        <button id="copyMail">
+          <img src="./assets/copy_icon.png" alt="copy-icon">
+          <span>Copy Email</span>
+        </button>
+
+        <span id="closeModal">×</span>
+      </div>
+    </div>
     <script src="./js/main.js"></script>
-    <!-- <div id="cursor"></div> -->
   </body>
 </html>
